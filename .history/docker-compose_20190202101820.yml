@@ -7,8 +7,10 @@ services:
       dockerfile: Dockerfile
     container_name: webserver_test
     volumes:
-      - /var/www/html/:/var/www
-      - ./.docker/nginx/sites/:/etc/nginx/conf.d
+      - ./:/var/www
+      - ./.docker/nginx/sites:/etc/nginx/conf.d
+      - ./.docker/nginx/sites:/etc/nginx/sites-enabled
+      - ./.docker/nginx/sites:/etc/nginx/sites-available
       - ./storage/logs/nginx:/var/log/nginx
     ports:
       - 80:80
@@ -58,8 +60,7 @@ services:
       context: ./.docker/cli
     container_name: cli_test
     volumes:
-      # - ./:/var/www
-      - /var/www/html/:/var/www
+      - ./:/var/www
     tty: true
     links:
       - mysql

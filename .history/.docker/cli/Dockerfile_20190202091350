@@ -9,7 +9,7 @@ RUN groupadd -g $PGID $DOCKER_USER && useradd -u $PUID -g $DOCKER_USER -m $DOCKE
 RUN apt-get update && apt-get install -y \
 libmcrypt-dev \
 git \
-nano
+
 
 RUN docker-php-ext-install bcmath pdo_mysql
 

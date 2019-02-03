@@ -7,9 +7,7 @@ ARG PGID=1000
 RUN groupadd -g $PGID $DOCKER_USER && useradd -u $PUID -g $DOCKER_USER -m $DOCKER_USER && adduser $DOCKER_USER sudo
 
 RUN apt-get update && apt-get install -y \
-libmcrypt-dev \
-git \
-nano
+libmcrypt-dev
 
 RUN docker-php-ext-install bcmath pdo_mysql
 

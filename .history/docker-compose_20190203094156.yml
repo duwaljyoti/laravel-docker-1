@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: webserver_test
     volumes:
-      - /var/www/html/:/var/www
+      - ./:/var/www
       - ./.docker/nginx/sites/:/etc/nginx/conf.d
       - ./storage/logs/nginx:/var/log/nginx
     ports:
